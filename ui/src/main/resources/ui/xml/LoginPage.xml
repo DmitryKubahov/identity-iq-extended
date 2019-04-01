@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout:verticalLayout itemsAlignment="CENTER" sizeFull="true"
+                       xmlns:layout="http://vaadin.xml.com/layout"
+                       xmlns:component="http://vaadin.xml.com/component"
+                       xmlns:button="http://vaadin.xml.com/button"
+                       xmlns:listener="http://vaadin.xml.com/listener">
+    <components>
+        <component:textField label="Login" id="LoginField"/>
+        <component:passwordField label="Password" id="PasswordField"/>
+        <button:button text="Press me" icon="USER" id="LoginButton" enabled="true">
+            <listeners>
+                <listener:componentListener
+                        type="com.sailpoint.identityiq.ui.listeners.login.LoginButtonClickListener">
+                    <attributes>
+                        <attribute name="userNameFieldId" value="LoginField"/>
+                        <attribute name="passwordFieldId" value="PasswordField"/>
+                    </attributes>
+                </listener:componentListener>
+            </listeners>
+        </button:button>
+    </components>
+</layout:verticalLayout>

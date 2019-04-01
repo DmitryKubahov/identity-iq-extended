@@ -1,0 +1,23 @@
+:project-github-url: https://community.sailpoint.com/groups/development-partnership-program/blog/2019/02/28/new-ideas-of-the-future
+
+= IdentityIQ extended projects
+
+Contains new features for IdentityIQ.
+Structure:
+
+. *customization* - project for extended identity iq
+. *identity-iq-bundle* - builds main war
+. *identity-iq-service* - contains all identityIQ services layer
+. *ui* - main UI project
+
+== Quick start
+You need:
+
+. Set current setting for data base connection in *identity-iq-bundle* project, file - 'application.yml'
+. Run
++
+----
+mvn jetty:run
+----
+
+

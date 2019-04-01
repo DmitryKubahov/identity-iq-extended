@@ -1,0 +1,11 @@
+# Settings for sail point data source
+dataSource:
+  #Authentication section
+  username: identityiq
+  password: identityiq
+
+  #Connection data source
+  url: jdbc:mysql://localhost:3306/identityiq?useServerPrepStmts=true&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8
+  driverClassName: com.mysql.jdbc.Driver
+  hibernate:
+    dialect: org.hibernate.dialect.MySQL8Dialect

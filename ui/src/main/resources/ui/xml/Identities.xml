@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component:grid selectionMode="SINGLE" flexGrow="1" xmlns:component="http://vaadin.xml.com/component"
+                xmlns:provider="http://vaadin.xml.com/provider" xmlns:listener="http://vaadin.xml.com/listener">
+    <listeners>
+        <listener:componentListener type="com.sailpoint.identityiq.ui.listeners.grid.GridRowClickListener"/>
+    </listeners>
+    <provider:jpaSailPointGridProvider entityType="com.sailpoint.identityiq.model.entity.IdentityIq"/>
+    <columns>
+        <column caption="First name" property="firstName"/>
+        <column caption="Last name" property="lastName"/>
+        <column caption="Display name" property="displayName"/>
+        <column caption="Email" property="email"/>
+    </columns>
+</component:grid>

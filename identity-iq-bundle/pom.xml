@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>identity-iq-extended</artifactId>
+        <groupId>com.sailpoint</groupId>
+        <version>${main.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sailpoint</groupId>
+    <artifactId>identity-iq-bundle</artifactId>
+    <packaging>war</packaging>
+
+    <dependencies>
+        <!-- SERVICE MODULE -->
+        <dependency>
+            <groupId>com.sailpoint</groupId>
+            <artifactId>identity-iq-service</artifactId>
+            <version>${main.version}</version>
+        </dependency>
+        <!-- UI MODULE -->
+        <dependency>
+            <groupId>com.sailpoint.identityiq</groupId>
+            <artifactId>ui</artifactId>
+            <version>${main.version}</version>
+        </dependency>
+        <!-- CUSTOMIZATION MODULE -->
+        <dependency>
+            <groupId>com.sailpoint.identityiq</groupId>
+            <artifactId>customization</artifactId>
+            <version>${main.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- Skip error: missing web.xml -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

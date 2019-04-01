@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.sailpoint.identityiq.ui.component:grid xmlns:com.sailpoint.identityiq.ui.component="http://protorype.sailpoint.com/grid"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://protorype.sailpoint.com/grid ./schemagen/xml-grid-com.sailpoint.identityiq.ui.component.xsd">
+    <clickListenerClassName>com.sailpoint.identityiq.ui.listeners.GridItemClickListenerDisplayNameNotification</clickListenerClassName>
+    <columns>
+        <column caption="First name" property="firstName"/>
+        <column caption="Last name" property="lastName"/>
+        <column caption="Display name" property="displayName"/>
+        <column caption="Email" property="email"/>
+    </columns>
+</com.sailpoint.identityiq.ui.component:grid>
