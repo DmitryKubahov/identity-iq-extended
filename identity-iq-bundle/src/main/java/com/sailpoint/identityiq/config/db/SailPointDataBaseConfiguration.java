@@ -4,9 +4,11 @@ import com.sailpoint.identityiq.model.entity.SailPointEntity;
 import com.sailpoint.identityiq.model.repository.SailPointRepository;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import liquibase.integration.spring.SpringLiquibase;
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -58,6 +60,7 @@ public class SailPointDataBaseConfiguration {
      * @return entity manager factory bean
      */
     @Bean
+    @DependsOn("liquibase")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource());
@@ -77,6 +80,19 @@ public class SailPointDataBaseConfiguration {
     @Bean
     public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory().getObject());
+    }
+
+    /**
+     * Liquibase spring bean for loading changelogs
+     *
+     * @return liquibase bean
+     */
+    @Bean
+    public SpringLiquibase liquibase() {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setChangeLog("classpath:liquibase/db.changelog-master.xml");
+        liquibase.setDataSource(dataSource());
+        return liquibase;
     }
 
     /**

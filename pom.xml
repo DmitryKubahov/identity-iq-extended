@@ -32,6 +32,7 @@
         <spring.version>5.1.5.RELEASE</spring.version>
         <spring.security.version>5.1.4.RELEASE</spring.security.version>
         <spring-data-jpa.version>2.1.5.RELEASE</spring-data-jpa.version>
+        <liquibase.version>3.6.3</liquibase.version>
         <yaml.version>1.23</yaml.version>
         <hibernate.version>5.4.1.Final</hibernate.version>
         <lombok.version>1.18.6</lombok.version>
@@ -39,12 +40,14 @@
 
         <!-- Connection JDBC versions -->
         <mysql.connection.varsion>8.0.15</mysql.connection.varsion>
+        <postgresql.connection.varsion>42.2.5</postgresql.connection.varsion>
+        <mssql.connection.varsion>7.2.1.jre8</mssql.connection.varsion>
+        <ojdbc.connection.varsion>12.1.0.2</ojdbc.connection.varsion>
         <hikari.cp.version>3.3.1</hikari.cp.version>
 
         <!-- Commons -->
         <commons.beanutils.varsion>1.9.3</commons.beanutils.varsion>
         <commons.lang3.version>3.8.1</commons.lang3.version>
-
 
         <!-- Logging versions -->
         <logback.version>1.2.3</logback.version>
@@ -116,12 +119,35 @@
             <version>${identityiq.version}</version>
         </dependency>
 
+        <!-- Liquibase -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
+        <!-- JDBC drivers -->
         <!-- Mysql library connection -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connection.varsion}</version>
         </dependency>
+
+        <!-- MsSQL
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.connection.varsion}</version>
+        </dependency>
+        -->
+        <!-- OJDBC
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>${ojdbc.connection.varsion}</version>
+        </dependency>
+        -->
 
         <!-- Spring -->
         <!-- Spring WEB -->
