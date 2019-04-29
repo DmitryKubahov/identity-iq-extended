@@ -161,7 +161,7 @@
     <changeSet author="sailpoint" id="3">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="SPT_DATABASE_VERSION"/>
+                <tableExists tableName="spt_database_version"/>
             </not>
         </preConditions>
 
@@ -3879,9 +3879,7 @@
             <column name="responses" type="clob"/>
             <column name="attributes" type="clob"/>
         </createTable>
-    </changeSet>
 
-    <changeSet author="sailpoint" id="4">
         <createIndex indexName="spt_actgroup_lastAggregation" tableName="spt_account_group">
             <column name="last_target_aggregation"/>
         </createIndex>
@@ -9309,6 +9307,9 @@
                 <dbms type="mysql"/>
                 <dbms type="mssql"/>
             </or>
+            <not>
+                <tableExists tableName="spt_prv_trans_sequence"/>
+            </not>
         </preConditions>
 
         <createTable tableName="spt_prv_trans_sequence">
@@ -9348,6 +9349,7 @@
         <preConditions onFail="MARK_RAN">
             <not>
                 <dbms type="mysql"/>
+                <indexExists indexName="spt_managed_comp"/>
             </not>
         </preConditions>
         <createIndex indexName="spt_managed_comp" tableName="spt_managed_attribute">
@@ -9361,6 +9363,9 @@
     <changeSet author="sailpoint" id="7">
         <preConditions onFail="MARK_RAN">
             <dbms type="mysql"/>
+            <not>
+                <indexExists indexName="spt_managed_comp"/>
+            </not>
         </preConditions>
         <createIndex indexName="spt_managed_comp" tableName="spt_managed_attribute">
             <column name="application(32)"/>
@@ -9377,6 +9382,7 @@
                     <dbms type="mysql"/>
                     <dbms type="mssql"/>
                 </or>
+                <sequenceExists sequenceName="spt_prv_trans_sequence"/>
             </not>
         </preConditions>
         <createSequence incrementBy="1" sequenceName="spt_prv_trans_sequence" startValue="1"/>
